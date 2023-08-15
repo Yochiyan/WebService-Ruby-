@@ -1,0 +1,26 @@
+<div class="sidebar">
+  <ul>
+    <li>
+      <a href="/">
+        <% if locals[:page_name] == "newpost" %>
+          <img src="/img/home.svg" alt="ホーム">
+          <p class="normal-text">ホーム</p>
+        <% else %>
+          <img src="/img/home-fill.svg" alt="ホーム">
+          <p class="bold-text">ホーム</p>
+        <% end %>
+      </a>
+    </li>
+    <li>
+      <a href="/newpost">
+        <% if locals[:page_name] == "newpost" %>
+          <img src="/img/newpost-fill.svg" alt="新規投稿">
+          <p class="bold-text">新規投稿</p>
+        <% else %>
+          <img src="/img/newpost.svg" alt="新規投稿">
+          <p class="normal-text">新規投稿</p>
+        <% end %>
+      </a>
+    </li>
+  </ul>
+</div>

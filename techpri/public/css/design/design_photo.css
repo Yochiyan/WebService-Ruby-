@@ -1,0 +1,25 @@
+/* 加工した画像を表示する画面のデザインを書いています。 */
+.photo-container {
+  padding-bottom: 0;
+}
+
+.result-photo {
+  margin-bottom: 30px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#textID {
+  text-align: center;
+  margin: 25px auto;
+  font-family: "mini-wakuwaku-maru";
+  font-size: 25px;
+}
+
+@media all and (max-width: 700px) {
+  .result-photo {
+    padding: 30px 0, 0, 0;
+    margin-bottom: 4%;
+    width: 90%;
+  }
+}

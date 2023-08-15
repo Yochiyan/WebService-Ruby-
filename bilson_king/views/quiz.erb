@@ -1,0 +1,29 @@
+<div class="root flex-container">
+  <%= erb :_side_frame %>
+  <main>
+    <a href="#" onclick="history.back(-1);return false;" class="back-button">
+      <i data-feather="chevron-left"></i>
+      <span>もどる</span>
+    </a>
+    <div class="quiz">
+      <h2 class="number">第<span><%= @quiz_id + 1 %></span>問</h2>
+      <h1 class="question"><%= @quiz[:question] %></h1>
+      <form action="/quiz/<%= @quiz_id %>" method="post" class="choices">
+        <% @quiz[:choices].each_with_index do |choice, index| %>
+        <button type="submit" name="choice_index" value="<%= index %>"><%= choice[:text] %></button>
+        <% end %>
+      </form>
+      <div class="progress-bar">
+        <div class="inner" data-current="<%= @quiz_id + 1 %>" data-length="<%= @quiz_length %>"></div>
+      </div>
+      <p class="progress-text"><%= @quiz_id + 1 %> / <%= @quiz_length %></p>
+    </div>
+  </main>
+</div>
+
+<script>
+  const progressBarElement = document.querySelector(".progress-bar .inner");
+  quiz_length = progressBarElement.getAttribute("data-length");
+  quiz_current = progressBarElement.getAttribute("data-current");
+  progressBarElement.style.width = `${(100 / quiz_length) * quiz_current}%`;
+</script>

@@ -1,0 +1,34 @@
+/* 顔が検出されなかった画面と、感情が足りなかった画面のデザインを書いています。 */
+.result-container .result-text {
+  margin: 40px 0;
+  font-size: 40px;
+  font-family: "Hiragino Kaku Gothic ProN";
+  font-weight: bold;
+}
+
+.result-container .result-percent {
+  font-size: 30px;
+  font-family: "Hiragino Kaku Gothic ProN";
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+@media all and (max-width: 700px) {
+  .result-container .result-text {
+    font-size: 5.5vw;
+  }
+
+  .result-container .result-percent {
+    font-size: 4vw;
+  }
+}
+
+@media all and (max-width: 680px) {
+  .result-text {
+    font-size: 7vw;
+  }
+
+  .result-percent {
+    margin-bottom: 4%;
+  }
+}

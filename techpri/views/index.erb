@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>TechPuri</title>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/design/design.css">
+    <link rel="stylesheet" href="/css/design/design_camera.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div id="loading">
+      <div class="spinner"></div>
+    </div>
+    <div id="content">
+      <div class="ribbon">
+        <img src="/img/designs/ribbon.png" alt="" id="ribbonImg">
+      </div>
+      <div class="box">
+        <h3>AIテクプリ</h3>
+        <h2>AI TechPuri</h2>
+        <h4>このテックさ、主役級</h4>
+        <!-- ① 以下にコードを記載 -->
+        <div class="timer-container">
+          <video  id="video"></video>
+          <div id="timer-background">
+            <h1 id="timer">1</h1>
+          </div>
+        </div>
+        <!-- ① コードの記載終わり -->
+      </div>
+      <!-- ③ 以下にコードを記載 -->
+      <form action="/take_photo" method="post" enctype="multipart/form-data" id="takePhotoForm" onsubmit="return !creatingImage;">
+      <!-- ③ コードの記載終わり -->
+        <input type="hidden" name="photo1" id="photo1">
+        <input type="hidden" name="photo2" id="photo2">
+        <input type="hidden" name="photo3" id="photo3">
+        <input type="hidden" name="message" id="message">
+        <input type="hidden" name="emotion_value" id="emotionValue">
+        <div class="button-container">
+          <input type="submit" value="さつえい" id="photoButton">
+        </div>
+      </form>
+      <!-- ⑤ 以下にコードを記載 -->
+<a href= "/search" id="searchButton">AI TechPuri Archive</a>
+      <!-- ⑤ コードの記載終わり -->
+    </div>
+    <div id="emotion" class="<%= @emotion %>"></div>
+    <canvas id="canvas1" class="image-canvas"></canvas>
+    <canvas id="canvas2" class="image-canvas"></canvas>
+    <canvas id="canvas3" class="image-canvas"></canvas>
+    <img src="/img/materials/hoppe1.png" alt="" class="photo-material" id="material">
+    <script src="/js/animation/animation_camera.js"></script>
+    <script src="/js/face-api/face-api.js"></script>
+    <script src="/js/face-api/face_api_service.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<header>
+  <div class="header-logo">
+    <p>Yochiyangram</p>
+  </div>
+  <div class="header-page-title">
+    <% if(locals[:page_name] == "home") %>
+      <p>ホーム</p>
+    <% elsif(locals[:page_name] == "newpost")%>
+      <p>新規投稿</p>
+    <% elsif(locals[:page_name] == "edit")%>
+      <p>編集</p>
+    <% end %>
+  </div>
+</header>
