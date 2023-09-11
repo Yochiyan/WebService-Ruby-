@@ -1,0 +1,157 @@
+/* 全ての画面に共通するデザインを書いています。 */
+
+/* ダウンロードしたフォントを読み込んでいます。 */
+@font-face {
+  font-family: "Brolian-Black";
+  src: url(/font/Brolian-Black.ttf);
+}
+
+@font-face {
+  font-family: "mini-wakuwaku-maru";
+  src: url(/font/mini-wakuwaku-maru.otf);
+}
+
+@font-face {
+  font-family: "Elmer-P";
+  src: url(/font/Elmer-P.ttf);
+}
+
+@font-face {
+  font-family: "Elmer";
+  src: url(/font/Elmer.ttf);
+}
+
+body {
+  background-image: url(/img/designs/background.png);
+  background-color: #BF96FF;
+  background-size: 1400px;
+
+  margin: 0;
+
+  text-align: center;
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  margin: auto 0;
+  display: none;
+}
+
+#ribbonImg {
+  width: 200px;
+}
+
+.ribbon {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.box {
+  margin: 0 auto;
+  padding: 30px;
+  width: 570px;
+
+  background-color: #fff;
+  border: 3px solid #000;
+
+  text-align: left;
+}
+
+.box h2 {
+  margin: 0 auto;
+  margin-bottom: -10px;
+  font-size: 50px;
+  font-family: "Brolian-Black";
+}
+
+.box h3 {
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: normal;
+  font-family: "mini-wakuwaku-maru";
+}
+
+.box h4 {
+  margin: 0 auto;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-family: "Elmer-P";
+}
+
+.button-container {
+  margin: 25px auto;
+  text-align: center;
+  display: block;
+  width: 300px;
+  height: 70px;
+  border-radius: 40px;
+  background-color: #fff;
+
+  border: #000 5px solid;
+}
+
+.image-canvas {
+  display: none !important;
+}
+
+.photo-material {
+  display: none !important;
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.spinner::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  border-top-color: #333;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+@media all and (max-width: 700px) {
+  #ribbonImg {
+    width: 30vw;
+  }
+
+  .box {
+    width: 90vw;
+    padding: 4% 0;
+  }
+
+  .box h2 {
+    font-size: 7vw;
+  }
+
+  .box h3 {
+    font-size: 3vw;
+  }
+
+  .box h4 {
+    font-size: 3vw;
+    margin-bottom: 3vw;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .button-container {
+    width: 200px;
+    height: 46px;
+    border-radius: 28px;
+  }
+}

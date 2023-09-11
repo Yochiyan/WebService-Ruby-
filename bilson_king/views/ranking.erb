@@ -1,0 +1,24 @@
+<div class="root flex-container">
+  <%= erb :_side_frame %>
+  <main class="ranking">
+    <a href="/result/<%= @quiz_length - 1 %>" class="back-button">
+      <i data-feather="chevron-left"></i>
+      <span>もどる</span>
+    </a>
+    <a href="/" class="back-button restart">
+      <i data-feather="repeat"></i>
+      <span>再挑戦！</span>
+    </a>
+    <div class="vertical-wrapper">
+      <h1 class="title">みんなの得点！</h1>
+      <div class="wrapper">
+        <% @results.each do |result| %>
+          <div class="ranking-result">
+            <p class="nickname"><%= CGI.escapeHTML(result[:name]) %></p>
+            <p class="score"><%= result[:score] %>ポイント</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>

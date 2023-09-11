@@ -1,0 +1,23 @@
+<div class="root flex-container">
+  <%= erb :_side_frame %>
+  <main>
+    <form action="/ranking/new" method="post" class="result">
+      <p class="score"><span class="point"><%= @correct_count %></span><span class="week">問 </span>正解！</p>
+      <p class="guide">ニックネームを入力してね！</p>
+      <input type="text" name="name" required />
+      <input type="hidden" name="score" value="score" />
+      <button type="submit" class="button">決定！</button>
+      <div class="progress-bar">
+        <div class="inner" data-length="<%= @quiz_length %>" data-current="<%= @quiz_length %>"></div>
+      </div>
+      <p class="progress-text"><%= @quiz_length %> / <%= @quiz_length %></p>
+    </form>
+  </main>
+</div>
+
+<script>
+  const progressbarHighlight = document.querySelector(".progress-bar .inner");
+  quiz_length = progressbarHighlight.getAttribute("data-length");
+  quiz_current = progressbarHighlight.getAttribute("data-current");
+  progressbarHighlight.style.width = `${(100 / quiz_length) * quiz_current}%`;
+</script>

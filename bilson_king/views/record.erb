@@ -1,0 +1,53 @@
+<div class="root flex-container">
+  <%= erb :_side_frame %>
+  <main>
+    <% if @quiz_id != 0 %>
+      <a href="/result/<%= @quiz_id - 1 %>" class="back-button">
+        <i data-feather="chevron-left"></i>
+        <span>もどる</span>
+      </a>
+    <% end %>
+    <div class="record">
+      <h2 class="number">第<span><%= @quiz_id + 1 %></span>問</h2>
+      <h1 class="question"><%= @quiz[:question] %></h1>
+      <div class="detail">
+        <div class="pie-chart">
+          <% lastAngle = 100 %>
+          <% @sorted_counts.each_with_index do |count, index| %>
+            <div class="item" style="background-image: conic-gradient(<%= @colors[count[0]] %> 0% <%= "#{lastAngle}%, transparent #{lastAngle}% 100%" %>)"></div>
+            <% lastAngle -= count[1] %>
+          <% end %>
+        </div>
+        <div class="bar-chart">
+          <% @quiz[:choices].each_with_index do |choice, index| %>
+            <div class="choice">
+              <div class="color-circle" style="background-color: <%= @colors[index] %>;"></div>
+              <div class="choice-detail">
+                <p class="text">
+                    <% if choice[:correct] %>
+                      <span class="correct">せいかい！</span>
+                    <% end %>
+                    <%= choice[:text] %>
+                </p>
+                <div class="choice-bar">
+                  <div class="inner" style="width: <%= @sorted_counts[index] %>%"></div>
+                </div>
+                <p class="percentage">
+                  <% if @sorted_counts[index] != nil %>
+                    <%= @sorted_counts[index] %>
+                  <% else %>
+                    0
+                  <% end %>
+                  % (<%= @choice_counts[index] || 0 %>人)
+                </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <a href="<%= @quiz_id != @quiz_length - 1 ? "/result/#{@quiz_id + 1}" : "/ranking" %>" class="record-next-button">
+      <span>次へ</span>
+    </a>
+  </main>
+</div>

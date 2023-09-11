@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ここで、faviconというタブのアイコンを設定しています。 -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/design/design.css">
+    <link rel="stylesheet" href="/css/design/design_photo.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>TechPuri</title>
+  </head>
+  <body>
+    <!-- contentというdiv要素で全体を囲んでいます。 -->
+    <!-- これによって、全体がページの縦方向に対して中央揃えになります。 -->
+    <div id="content">
+      <div class="ribbon">
+        <img src="/img/designs/ribbon.png" alt="" id="ribbonImg">
+      </div>
+      <!-- boxというclassをつけることで、白い背景を表示しています。 -->
+      <div class="box photo-container">
+        <h3>AIサマプリ</h3>
+        <h2>AI SummerPuri</h2>
+        <h4>このテックさ、主役級</h4>
+        <!-- <%= %> で囲んだ場所では、rubyのコードを利用して何を表示するかを設定できます。 -->
+        <img src="<%= @src_array[0] %>" alt="" class="result-photo">
+        <img src="<%= @src_array[1] %>" alt="" class="result-photo">
+        <img src="<%= @src_array[2] %>" alt="" class="result-photo">
+      </div>
+      <h3 id="textID">ID: <%= @id %></h3>
+    </div>
+    <script src="/js/search/search_photo.js"></script>
+    <script src="/js/animation/animation_fade_in.js"></script>
+  </body>
+</html>

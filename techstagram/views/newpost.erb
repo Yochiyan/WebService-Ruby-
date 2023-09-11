@@ -1,0 +1,50 @@
+<%= erb :'header', :locals => {:page_name => @page_name}%>
+
+<main>
+  <%= erb :'sidebar', :locals => {:page_name => @page_name}%>
+  <div class="newpost-wrap main-view">
+    <form method="post" action="/newpost" enctype="multipart/form-data" class="newpost">
+      <!-- シェアボタンを以下に記載 -->
+      <button type="submit" id="share">シェアする</button>
+      <div id="drag-drop-area">
+        <img src="/img/add-image.svg" alt="追加アイコン画像" class="add-img">
+        <div class="drag-drop-info">
+        </div>  
+      </div>
+      <p class="drag-drop-buttons">
+        <input id="file-input" type="file" accept="image/*" value="ファイルを選択" name="upload_photo" onChange="photoPreview(event)">
+      </p>
+      <div class="icons-wrap">
+        <input type="radio" name="icon_image" value="web_service" id="web_service" checked><label for="web_service"></label>
+        <input type="radio" name="icon_image" value="web_design" id="web_design"><label for="web_design"></label>
+        <input type="radio" name="icon_image" value="unity" id="unity"><label for="unity"></label>
+        <input type="radio" name="icon_image" value="movie" id="movie"><label for="movie"></label>
+        <input type="radio" name="icon_image" value="minecraft" id="minecraft"><label for="minecraft"></label>
+        <input type="radio" name="icon_image" value="miku" id="miku"><label for="miku"></label>
+        <input type="radio" name="icon_image" value="media_art" id="media_art"><label for="media_art"></label>
+        <input type="radio" name="icon_image" value="camera" id="camera"><label for="camera"></label>
+        <input type="radio" name="icon_image" value="designer" id="designer"><label for="designer"></label>
+        <input type="radio" name="icon_image" value="iphone" id="iphone"><label for="iphone"></label>
+        <input type="radio" name="icon_image" value="android" id="android"><label for="android"></label>
+        <input type="radio" name="icon_image" value="animation" id="animation"><label for="animation"></label>
+        <input type="radio" name="icon_image" value="digital_music" id="digital_music"><label for="digital_music"></label>
+      </div>
+      <div class="input-text">
+        <!-- ユーザーネームを入力するコードを以下に記載 -->
+        <input type="text" name="user_name" placeholder="ユーザーネームを入力..." >
+      </div>
+      <div class="input-text">
+        <!-- 本文を入力するコードを以下に記載 -->
+        <textarea name="caption" placeholder="キャプションを入力..."></textarea>
+      </div>
+      <div class="input-text">
+        <!-- 場所を入力するコードを以下に記載 -->
+        <input type="text" name="location" placeholder="場所を入力..." >
+      </div>
+    </form>
+  </div>
+</main>
+<%# 画像のドラッグ&ドラッグ、画像のプレビュー表示に関する設定ファイル %>
+<script src="/js/postImageSetting.js"></script>
+<%# 投稿バリデーションの設定ファイル %>
+<script src="/js/postValidation.js"></script>

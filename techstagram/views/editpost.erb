@@ -1,0 +1,56 @@
+<%= erb :'header', :locals => {:page_name => @page_name}%>
+
+<main>
+  <%= erb :'sidebar', :locals => {:page_name => @page_name}%>
+
+  <div class="editpost-wrap main-view edit-view">
+    <form method="post" action="/<%= @post.id %>/edit" enctype="multipart/form-data" class="newpost">
+      <!-- 更新ボタンを以下に追加 -->
+      <button type="submit" id="share">更新</button>
+      <div id="drag-drop-area">
+        <input class="drag-drop-button" id="file-input" type="file" accept="image/*" value="ファイルを選択" name="uploadPhoto" onChange="photoPreview(event)">
+        <img src="<%= @post.image_url %>" alt="投稿画像" class="edit-img">
+      </div>
+      <div class="icons-wrap">
+        <input type="radio" name="icon_image" value="web_service" id="web_service" checked><label for="web_service"></label>
+        <input type="radio" name="icon_image" value="web_design" id="web_design"><label for="web_design"></label>
+        <input type="radio" name="icon_image" value="unity" id="unity"><label for="unity"></label>
+        <input type="radio" name="icon_image" value="movie" id="movie"><label for="movie"></label>
+        <input type="radio" name="icon_image" value="minecraft" id="minecraft"><label for="minecraft"></label>
+        <input type="radio" name="icon_image" value="miku" id="miku"><label for="miku"></label>
+        <input type="radio" name="icon_image" value="media_art" id="media_art"><label for="media_art"></label>
+        <input type="radio" name="icon_image" value="camera" id="camera"><label for="camera"></label>
+        <input type="radio" name="icon_image" value="designer" id="designer"><label for="designer"></label>
+        <input type="radio" name="icon_image" value="iphone" id="iphone"><label for="iphone"></label>
+        <input type="radio" name="icon_image" value="android" id="android"><label for="android"></label>
+        <input type="radio" name="icon_image" value="animation" id="animation"><label for="animation"></label>
+        <input type="radio" name="icon_image" value="digital_music" id="digital_music"><label for="digital_music"></label>
+      </div>
+      <div class="input-text">
+        <input type="text" name="user_name" placeholder="ユーザーネームを入力..." value="<%= @post.user_name %>">
+      </div>
+      <div class="input-text">
+        <textarea name="caption" placeholder="キャプションを入力..."><%= @post.caption %></textarea>
+      </div>
+      <div class="input-text">
+        <input type="text" name="location" placeholder="場所を入力..." value="<%= @post.location %>">
+      </div>
+    </form>
+  </div>
+</main>
+<%# 画像のドラッグ&ドラッグ、画像のプレビュー表示に関する設定ファイル %>
+<script src="/js/postImageSetting.js"></script>
+<%# 投稿バリデーションの設定ファイル %>
+<script src="/js/postValidation.js"></script>
+<%# 投稿を編集するときのユーザーアイコン画像を自動的に選択する %>
+<script>
+  // 選択できるユーザーアイコンを全て取得する
+  var iconsArray = document.querySelectorAll(".icons-wrap input");
+
+  // 取得した全ユーザーアイコンと名前が一致するものを選択されていたものとして判定する
+  for(var i in iconsArray) {
+    if(iconsArray[i].value == "<%= @post.icon_image %>"){
+      iconsArray[i].checked = true;
+    }
+  }
+</script>

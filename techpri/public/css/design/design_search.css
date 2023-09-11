@@ -1,0 +1,72 @@
+/* 検索画面のデザインを書いています。 */
+.box {
+  padding-bottom: 0;
+}
+
+#inputID {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 0;
+  border: #000 5px solid;
+  border-radius: 23px;
+  width: 80%;
+  height: 36px;
+
+  font-family: "Elmer";
+  font-size: 25px;
+  text-align: center;
+}
+
+#inputID::placeholder {
+  color: #aaa;
+  font-size: 20px;
+}
+
+#message {
+  margin: 20px auto;
+  color: #b93535;
+  font-size: 20px;
+  font-family: "Elmer-P";
+}
+
+#searchButton {
+  color: #fff;
+  background-color: #000;
+  font-size: 25px;
+  font-family: "Elmer";
+  display: inline-block;
+  margin: 5px 0;
+
+  width: 290px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 30px;
+}
+
+@media all and (max-width: 700px) {
+  #inputID {
+    height: 5vw;
+    font-size: 3.5vw;
+  }
+
+  #inputID::placeholder {
+    font-size: 3vw;
+  }
+
+  #message {
+    font-size: 3vw;
+    margin: 3vw auto;
+  }
+}
+
+@media all and (max-width: 550px) {
+  #searchButton {
+    font-size: 17px;
+    margin: 3px 0;
+
+    width: 194px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+  }
+}
